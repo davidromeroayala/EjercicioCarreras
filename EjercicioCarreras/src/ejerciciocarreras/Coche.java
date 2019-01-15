@@ -82,6 +82,11 @@ public class Coche {
     }
 
    
+    public String datospiloto() {
+        return "nombre=" + nombre + ", dorsal=" + dorsal ;
+    }
+
+   
 
     
     
