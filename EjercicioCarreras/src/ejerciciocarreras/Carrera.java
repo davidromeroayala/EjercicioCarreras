@@ -86,7 +86,7 @@ public class Carrera {
     }
     public void mostrarPilotos(){
         for (Coche coche : vCoche) {
-            coche.datospiloto();
+            System.out.println("coche.datospiloto()"); 
         }
     }
 }
