@@ -5,6 +5,8 @@
  */
 package ejerciciocarreras;
 
+import menu.Menu;
+
 /**
  *
  * @author alumno
@@ -17,6 +19,7 @@ public class Coche {
     private int velocidad;
     private int kilometrosRecorridos;
     private String estado;
+    private boolean humano;
 
    
    //introducimos el coche 
@@ -27,11 +30,80 @@ public class Coche {
         this.estado="parado";
         this.velocidad=0;
         this.kilometrosRecorridos=0;
+        this.humano = false;
+    }
+    public Coche(int dorsal){
+        this.nombre = "Bot";
+        this.dorsal = dorsal;
+        this.distanciaCarrera=distanciaCarrera;
+        this.estado="parado";
+        this.velocidad=0;
+        this.kilometrosRecorridos=0;
+        this.humano = true;
+    }
+    public void arrancar(){
+        estado = "marcha";
+    }
+    public void frenar(){
+         int num=0;
+         num = Menu.numeroAleatorio(potencia);
+         
+             velocidad-=num;
+             kilometrosRecorridos+=num;
+         }
+    public void acelerar(){
+         int num=0;
+         num = Menu.numeroAleatorio(potencia);
+         if ((velocidad+num)>200){
+             velocidad=0;
+             estado="accidentado";
+             
+         }else{
+             velocidad+=num;
+             kilometrosRecorridos+=num;
+             if (kilometrosRecorridos>=distanciaCarrera)
+                 estado="terminado";
+             System.out.println("Ha terminado");
+         }
+         
+       /* if (vCoche[i].getVelocidad()==-2) {
+            System.out.println("Accidentado ya no puede participar");
+        }else{
+            num= Menu.numeroAleatorio(vCoche[i].getPotencia());
+             if (vCoche[i].getVelocidad()==-1) {
+                 vCoche[i].setVelocidad(0);
+             }
+            num+=vCoche[i].getVelocidad();
+
+            if(num<200){vCoche[i].setVelocidad(num);
+            }else{if (cochesTerminados()<0) {
+                      vCoche[i].setVelocidad(-2);
+                      vCoche[i].setEstado("accidentado");  
+                }else{
+            vCoche[i].setVelocidad(-1);
+            vCoche[i].setEstado("accidentado");
+                 }
+            }
+            int recorrido=0;
+            recorrido= vCoche[i].getKilometrosRecorridos();
+            recorrido+=num;
+            vCoche[i].setKilometrosRecorridos(recorrido);*/
+    }
+    
+    public int getPotencia() {
+        return potencia;
     }
 
-    Coche() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setHumano(boolean humano) {
+        this.humano = humano;
     }
+
+    public boolean isHumano() {
+        return humano;
+    }
+    
+    
+
 
     public String getNombre() {
         return nombre;
@@ -86,7 +158,9 @@ public class Coche {
         return "nombre=" + nombre + ", dorsal=" + dorsal ;
     }
 
-   
+    public String duranteCarrera () {
+        return "nombre=" + nombre + ", dorsal=" + dorsal + ", estado= " + estado + ", velocidad= " + velocidad +", kilometros recorridos= "+ kilometrosRecorridos ;
+    }
 
     
     
