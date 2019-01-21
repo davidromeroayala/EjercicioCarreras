@@ -39,7 +39,7 @@ public class Coche {
         this.estado="parado";
         this.velocidad=0;
         this.kilometrosRecorridos=0;
-        this.humano = true;
+        this.humano = false;
     }
     public void arrancar(){
         estado = "marcha";
